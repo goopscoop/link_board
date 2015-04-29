@@ -1,0 +1,9 @@
+<div class="col-md-6 col-md-offset-3">
+  <h1>Add a Post</h1>
+
+  <%= bootstrap_form_for @post do |f| %>
+    <%= f.text_field :title, placeholder: "Enter post title" %>
+    <%= f.text_field :link, placeholder: "Enter site url" %>
+    <%= f.submit 'Submit' %>
+  <% end %>
+</div>
