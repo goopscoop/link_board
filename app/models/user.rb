@@ -2,7 +2,16 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  has_many :comments
+  # Posts creted by the user
   has_many :posts
+
+  # Votes about this user
+  has_many :votes, as: :votable
+
+  #votes cast by the user
+  has_many :ratings, class_name: 'Vote'
+
 
   validates :name,
     presence: true,

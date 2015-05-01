@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # SIGNUP
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'
+  get 'myposts' => 'users#index'
 
   #AUTHENTICATION
   get 'login' => 'sessions#new'
@@ -17,7 +18,13 @@ Rails.application.routes.draw do
 
   #POST
 
-  resources :posts
+  resources :posts do
+    resources :votes, :only => [:create]
+  end
+
+  resources :posts do
+    resources :comments
+  end
 
 
 

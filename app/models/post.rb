@@ -1,5 +1,9 @@
 class Post < ActiveRecord::Base
 
+  belongs_to :user
+  has_many :votes, as: :votable
+  has_many :comments
+
   validates :title,
     presence: true,
     length: {minimum: 10, maximum: 100}
@@ -7,6 +11,5 @@ class Post < ActiveRecord::Base
   validates :link,
     presence: true
 
-  belongs_to :user
 
 end

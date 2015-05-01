@@ -1,0 +1,22 @@
+<div class="col-md-6 col-md-offset-3">
+<h1>Comments</h1>
+  <h2><%= link_to @post.title, @post.link %></h2>
+  <p><strong>Url: </strong><%= @post.link %></p>
+  <p>Submitted by <%= @user.email %></p>
+
+  <%= bootstrap_form_for [:post,@comment] do |f| %>
+    <%= f.text_area :message, placeholder: "Enter comment" %>
+    <%= f.submit 'Submit' %>
+  <% end %>
+  <hr>
+  <table>
+    <% @comments.each do |c| %>
+      <tr>
+        <td>
+          <p><%= c.message %></p>
+          <hr>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

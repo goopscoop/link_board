@@ -1,5 +1,14 @@
 class PostsController < ApplicationController
 
+  def index
+    @vote = Vote.new
+    @posts = Post.all
+    respond_to do |format|
+      format.json {render json:@posts}
+      format.xml{ render xml:@posts}
+    end
+  end
+
   def new
     @post = Post.new
   end
